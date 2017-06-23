@@ -1,0 +1,12 @@
+.grid-flexbox {
+    @each $screen-prefix, $sizes in get-screens-map($grid-flexbox-screens-support-skip-screens) {
+        @media(min-width: get-screen-size($screen-prefix, min)) {
+            @for $i from 1 through $grid-columns {
+                .column-#{$screen-prefix}-#{$i} {
+                    @include flex-basis(percentage($i/$grid-columns));
+                    max-width: percentage($i/$grid-columns);
+                }
+            }
+        }
+    }
+}
