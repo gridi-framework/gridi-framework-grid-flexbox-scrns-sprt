@@ -13,11 +13,11 @@
                 max-width: 100%;
             }
             
-            @for $i from 1 through $grid-columns {
-                .#{$screen-prefix}-#{$grid-column-class-prefix}-#{$i} {
-                    @include flex-basis(percentage($i/$grid-columns));
-                    width: percentage($i/$grid-columns);
-                    max-width: percentage($i/$grid-columns);
+            @each $prefix, $size in $grid-columns {
+                .#{$screen-prefix}-#{$grid-column-class-prefix}-#{$prefix} {
+                    @include flex-basis($size);
+                    width: $size;
+                    max-width: $size;
                 }
             }
         }
